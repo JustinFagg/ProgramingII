@@ -14,5 +14,9 @@ def main():
     print(f"The largest number is {max(numbers)}")
     print(f"The average of the numbers is {sum(numbers) / len(numbers)}")
 
+    usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'BaseInterpreterInterface', 'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole', 'InterpreterInterface', 'StartServer', 'bob']
+    if input("Username: ") in usernames:
+        print("Access granted")
+
 
 main()
