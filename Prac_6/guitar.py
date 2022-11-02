@@ -1,10 +1,11 @@
 """
 guitar class
 Estimate: 40 minutes
-Actual:  minutes
+Actual: 57 minutes
 """
 
 CURRENT_YEAR = 2022
+
 
 class Guitar:
     """Creates class"""
@@ -24,7 +25,7 @@ class Guitar:
         return CURRENT_YEAR - self.year
 
     def is_vintage(self):
-        """Returns true if self is dynamic"""
+        """Returns true if is older than 50"""
         if self.get_age() >= 50:
             return True
         else:
