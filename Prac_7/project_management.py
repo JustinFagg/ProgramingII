@@ -1,7 +1,7 @@
 """
 project management
 Estimate: 60 minutes
-Actual: Has been 40 mins to this point, Break time
+Actual: Has been 120 mins
 """
 
 from Prac_7.project import Project
@@ -29,9 +29,36 @@ def load_file(readable_file):
 def save_to_file(writable_file, my_projects):
     opened_file = open(writable_file, 'w')
     for i in range(len(my_projects)):
-        print(
-            f"{my_projects[i].name}\t{my_projects[i].start_date}\t{my_projects[i].priority}\t{my_projects[i].cost_estimate}\t{my_projects[i].completion_percentage}",
-            file=opened_file)
+        print(my_projects[i].__repr__(), file=opened_file)
+
+
+def display_projects(projects):
+    sorted_projects = sorted(projects)
+    completed_projects = [sorted_projects[i] for i in range(len(sorted_projects)) if sorted_projects[i].is_completed()]
+    uncompleted_projects = [sorted_projects[i] for i in range(len(sorted_projects)) if
+                            not sorted_projects[i].is_completed()]
+    print("Completed projects:")
+    for project in completed_projects:
+        print(project)
+    print("Uncompleted projects:")
+    for project in uncompleted_projects:
+        print(project)
+
+
+def display_filtered_projects(projects, date):
+    date = date.split("/")
+    year = date[2]
+    month = date[1]
+    day = date[0]
+    for project in sorted(projects, key=lambda x: (x.start_year, x.start_month, x.start_day)):
+        if project.start_year > year:
+            print(project)
+        elif project.start_year == year:
+            if project.start_month > month:
+                print(project)
+            elif project.start_month == month:
+                if project.start_day >= day:
+                    print(project)
 
 
 def main():
@@ -46,11 +73,9 @@ def main():
             file = input("FileName: ")
             save_to_file(file, my_projects)
         elif choice == "D":
-            print("D")
-            # display
+            display_projects(my_projects)
         elif choice == "F":
-            print("F")
-            # filter
+            display_filtered_projects(my_projects, input("Date "))
         elif choice == "A":
             print("A")
             # Addnew
