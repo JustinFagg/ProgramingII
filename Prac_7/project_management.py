@@ -61,6 +61,11 @@ def display_filtered_projects(projects, date):
                     print(project)
 
 
+def add_new_project():
+    return Project(input("Name: "), input("Start Date: "), int(input("Priority: ")), float(input("Cost Estimate: $")),
+                   int(input("Completion Percent: ")))
+
+
 def main():
     my_projects = []
     print(MENU)
@@ -77,8 +82,7 @@ def main():
         elif choice == "F":
             display_filtered_projects(my_projects, input("Date "))
         elif choice == "A":
-            print("A")
-            # Addnew
+            my_projects.append(add_new_project())
         elif choice == "U":
             print("U")
             # update
