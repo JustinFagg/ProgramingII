@@ -15,6 +15,8 @@ def main():
         parts = line.strip().split(',')
         my_guitars.append(Guitar(parts[0], int(parts[1]), float(parts[2])))
 
+    my_guitars.sort()
+
     for i in range(len(my_guitars)):
         is_guitar_vintage_string = "(vintage)" if my_guitars[i].is_vintage() else ""
         print(f"Guitar {i + 1}: {my_guitars[i].name:>25} ({my_guitars[i].year:>4}),"
