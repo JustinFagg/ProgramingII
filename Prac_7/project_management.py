@@ -1,7 +1,7 @@
 """
 project management
 Estimate: 60 minutes
-Actual:
+Actual: Has been 40 mins to this point, Break time
 """
 
 from Prac_7.project import Project
