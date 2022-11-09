@@ -31,3 +31,4 @@ class Project:
 
     def is_completed(self):
         return self.completion_percentage == 100
+

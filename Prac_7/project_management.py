@@ -66,6 +66,15 @@ def add_new_project():
                    int(input("Completion Percent: ")))
 
 
+def update_project(projects):
+    for i in range(len(projects)):
+        print(f"{i} {projects[i]}")
+    choice = int(input("Project to Modify: "))
+    projects[choice].priority = int(input("New Priority: "))
+    projects[choice].completion_percentage = int(input("New Percentage: "))
+    return projects
+
+
 def main():
     my_projects = []
     print(MENU)
@@ -84,8 +93,7 @@ def main():
         elif choice == "A":
             my_projects.append(add_new_project())
         elif choice == "U":
-            print("U")
-            # update
+            my_projects = update_project(my_projects)
         print(MENU)
         choice = input(">>> ").upper()
 
