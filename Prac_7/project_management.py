@@ -16,6 +16,7 @@ MENU = """- (L)oad projects
 
 
 def load_file(readable_file):
+    """Loads inputted file"""
     my_projects = []
     opened_file = open(readable_file, 'r')
     opened_file.readline()
@@ -27,12 +28,14 @@ def load_file(readable_file):
 
 
 def save_to_file(writable_file, my_projects):
+    """Saves to inputted file"""
     opened_file = open(writable_file, 'w')
     for i in range(len(my_projects)):
         print(my_projects[i].__repr__(), file=opened_file)
 
 
 def display_projects(projects):
+    """Displays inputted projects"""
     sorted_projects = sorted(projects)
     completed_projects = [sorted_projects[i] for i in range(len(sorted_projects)) if sorted_projects[i].is_completed()]
     uncompleted_projects = [sorted_projects[i] for i in range(len(sorted_projects)) if
@@ -46,6 +49,7 @@ def display_projects(projects):
 
 
 def display_filtered_projects(projects, date):
+    """Displays inputted projects started after inputted date"""
     date = date.split("/")
     year = date[2]
     month = date[1]
@@ -62,11 +66,13 @@ def display_filtered_projects(projects, date):
 
 
 def add_new_project():
+    """Adds new project using return"""
     return Project(input("Name: "), input("Start Date: "), int(input("Priority: ")), float(input("Cost Estimate: $")),
                    int(input("Completion Percent: ")))
 
 
 def update_project(projects):
+    """updates one of the inputted projects"""
     for i in range(len(projects)):
         print(f"{i} {projects[i]}")
     choice = int(input("Project to Modify: "))

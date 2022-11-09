@@ -27,8 +27,10 @@ class Project:
         return f"{self.name}, started {self.start_date_str}, priority level {self.priority}, cost around {self.cost_estimate}, {self.completion_percentage}% compleat"
 
     def __lt__(self, other):
+        """test if less than"""
         return int(self.priority) > int(other.priority)
 
     def is_completed(self):
+        """return 1 if percentage is 100"""
         return self.completion_percentage == 100
 
