@@ -17,7 +17,10 @@ class SquareNumberApp(App):
         return self.root
 
     def handle_increment(self, increment):
-        self.root.ids.input_number.text = str(int(self.root.ids.input_number.text) + int(increment))
+        try:
+            self.root.ids.input_number.text = str(int(self.root.ids.input_number.text) + int(increment))
+        except ValueError:
+            self.root.ids.input_number.text = str(increment)
 
     def handle_calculate(self, value):
         """ handle calculation (could be button press or other call), output result to label widget """
@@ -25,7 +28,7 @@ class SquareNumberApp(App):
             result = float(value) * 1.60934
             self.root.ids.output_label.text = str(result)
         except ValueError:
-            pass
+            self.root.ids.output_label.text = "0.0"
 
 
 SquareNumberApp().run()
