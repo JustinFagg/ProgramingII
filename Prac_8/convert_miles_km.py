@@ -3,6 +3,8 @@ CP1404/CP5632 Practical
 Kivy GUI program to convert miles into km
 """
 
+CONVERSION_FACTOR=1.60934
+
 from kivy.app import App
 from kivy.lang import Builder
 
@@ -25,7 +27,7 @@ class SquareNumberApp(App):
     def handle_calculate(self, value):
         """ handle calculation (could be button press or other call), output result to label widget """
         try:
-            result = float(value) * 1.60934
+            result = float(value) * CONVERSION_FACTOR
             self.root.ids.output_label.text = str(result)
         except ValueError:
             self.root.ids.output_label.text = "0.0"
