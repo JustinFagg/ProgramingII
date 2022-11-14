@@ -30,3 +30,6 @@ class Guitar:
             return True
         else:
             return False
+
+    def __lt__(self, other):
+        return int(self.year) < int(other.year)
