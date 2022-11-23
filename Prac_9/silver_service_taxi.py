@@ -23,11 +23,7 @@ class SilverServiceTaxi(Taxi):
 
     def get_fare(self):
         """Return the price for the taxi trip."""
-        return self.price_per_km * self.current_fare_distance + self.flagfall
-
-    def start_fare(self):
-        """Begin a new fare."""
-        self.current_fare_distance = 0
+        return super().get_fare() + self.flagfall
 
     def drive(self, distance):
         """Drive like parent Car but calculate fare distance as well."""
